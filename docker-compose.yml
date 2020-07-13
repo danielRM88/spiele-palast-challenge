@@ -1,0 +1,16 @@
+version: "3.5"
+services:
+  api:
+    build: ./backend/.
+    volumes:
+      - ./backend/.:/api
+    ports:
+      - "8080:8080"
+  frontend:
+    build: ./frontend/.
+    tty: true
+    volumes:
+      - ./frontend/.:/client
+    ports:
+      - "3005:3000"
+    command: npm start
